@@ -95,8 +95,11 @@ class SistemaVendasCLI:
     def consulta_05_pedidos_recentes(self):
         
         sql = """
+        SELECT id_pedido, data_pedido, valor_total, status_pedido
+        FROM Pedido
+        WHERE (NOW() - data_pedido) <= INTERVAL '60 days';
         """
-        self.executar_consulta(sql, "DESCRICAO DA CONSULTA")
+        self.executar_consulta(sql, "5. Histórico de Pedidos Recentes")
     
     def consulta_06_produtos_caros_categoria(self):
         
