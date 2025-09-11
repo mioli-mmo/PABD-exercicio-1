@@ -67,15 +67,21 @@ class SistemaVendasCLI:
         SELECT nome, preco, quantidade_estoque
         FROM produto
         WHERE categoria='Informática'
-        ORDER BY preco
+        ORDER BY preco;
         """
         self.executar_consulta(sql, "2. Catálogo de Produtos por Categoria")
     
     def consulta_03_pedidos_status(self):
         
         sql = """
+        SELECT COUNT(*) FROM Pedido WHERE status_pedido='pendente';
+        SELECT COUNT(*) FROM Pedido WHERE status_pedido='confirmado';
+        SELECT COUNT(*) FROM Pedido WHERE status_pedido='processando';
+        SELECT COUNT(*) FROM Pedido WHERE status_pedido='enviado';
+        SELECT COUNT(*) FROM Pedido WHERE status_pedido='entregue';
+        SELECT COUNT(*) FROM Pedido WHERE status_pedido='cancelado';
         """
-        self.executar_consulta(sql, "DESCRICAO DA CONSULTA")
+        self.executar_consulta(sql, "3. Contagem de Pedidos por Status")
     
     def consulta_04_estoque_baixo(self):
         
