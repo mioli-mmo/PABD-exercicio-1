@@ -86,8 +86,11 @@ class SistemaVendasCLI:
     def consulta_04_estoque_baixo(self):
         
         sql = """
+        SELECT nome, quantidade_estoque, categoria
+        FROM Produto
+        WHERE quantidade_estoque < 30;
         """
-        self.executar_consulta(sql, "DESCRICAO DA CONSULTA")
+        self.executar_consulta(sql, "4. Alerta de Estoque Baixo")
     
     def consulta_05_pedidos_recentes(self):
         
