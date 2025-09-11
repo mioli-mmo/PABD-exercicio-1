@@ -104,8 +104,11 @@ class SistemaVendasCLI:
     def consulta_06_produtos_caros_categoria(self):
         
         sql = """
+        SELECT DISTINCT ON (categoria) categoria, nome, preco
+        FROM Produto
+        ORDER BY categoria, preco DESC;
         """
-        self.executar_consulta(sql, "DESCRICAO DA CONSULTA")
+        self.executar_consulta(sql, "6. Produtos Mais Caros por Categoria")
     
     def consulta_07_contatos_incompletos(self):
         
