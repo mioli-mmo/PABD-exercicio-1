@@ -64,8 +64,12 @@ class SistemaVendasCLI:
     def consulta_02_produtos_categoria(self):
         
         sql = """
+        SELECT nome, preco, quantidade_estoque
+        FROM produto
+        WHERE categoria='Informática'
+        ORDER BY preco
         """
-        self.executar_consulta(sql, "DESCRICAO DA CONSULTA")
+        self.executar_consulta(sql, "2. Catálogo de Produtos por Categoria")
     
     def consulta_03_pedidos_status(self):
         
