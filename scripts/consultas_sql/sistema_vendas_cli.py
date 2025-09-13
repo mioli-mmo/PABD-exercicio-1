@@ -113,8 +113,11 @@ class SistemaVendasCLI:
     def consulta_07_contatos_incompletos(self):
         
         sql = """
+        SELECT *
+        FROM Usuario
+        WHERE telefone=NULL AND ativo=TRUE;
         """
-        self.executar_consulta(sql, "DESCRICAO DA CONSULTA")
+        self.executar_consulta(sql, "7. Clientes com Dados de Contato Incompletos")
     
     def consulta_08_pedidos_enviados(self):
         
