@@ -122,8 +122,12 @@ class SistemaVendasCLI:
     def consulta_08_pedidos_enviados(self):
         
         sql = """
+        SELECT u.*, p.endereco_entrega
+        FROM Pedido p
+        JOIN Usuario u ON p.id_usuario = u.id_usuario
+        WHERE p.status_pedido = 'enviado';
         """
-        self.executar_consulta(sql, "DESCRICAO DA CONSULTA")
+        self.executar_consulta(sql, "8. Pedidos Pendentes de Entrega")
     
     def consulta_09_detalhamento_pedido(self):
         
